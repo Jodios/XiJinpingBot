@@ -1,5 +1,7 @@
 FROM golang:alpine as builder
 RUN mkdir /build 
+COPY ./config.yaml /build
+COPY ./banner.txt /build
 ADD ./src /build/
 WORKDIR /build 
 RUN ls
