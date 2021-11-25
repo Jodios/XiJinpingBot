@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: xi_jinping_bot
+  namespace: prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xi_jinping_bot
+  template:
+    metadata:
+      labels:
+        app: xi_jinping_bot 
+    spec:
+      containers:
+        - name: xi_jinping_bot
+          image: #{deployment.image.name}#
+          ports:
+            - name: http-api
+              containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
