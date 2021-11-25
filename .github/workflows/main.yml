@@ -51,6 +51,7 @@ jobs:
           files: kube.yaml
         env:
           deployment.image.name: ${{ secrets.DOCKERHUB_USERNAME }}/xi_jinping_bot:${{ github.run_id }}
+          secrets.discordToken: ${{ secrets.DISCORD_TOKEN }}
 
       - name: Deploy
         uses: danielr1996/kubectl-action@1.0.0

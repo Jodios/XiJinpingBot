@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 
 	"xi_jinping_bot/config"
 	my_util "xi_jinping_bot/util"
@@ -17,7 +18,7 @@ var context config.Configuration
 func main() {
 	config.InitContext(&context)
 	client = goscord.New(&gateway.Options{
-		Token: context.Token,
+		Token: os.Getenv("DISCORD_TOKEN"),
 	})
 
 	client.On("ready", on_ready)

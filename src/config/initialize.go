@@ -34,6 +34,5 @@ func PrintBanner() {
 }
 
 type Configuration struct {
-	Token       string   `yaml:"bot_token"`
 	No_No_Words []string `yaml:"great_firewall"`
 }
