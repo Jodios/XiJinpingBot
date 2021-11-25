@@ -1,20 +1,20 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: xi_jinping_bot
+  name: xi-jinping-bot
   namespace: prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: xi_jinping_bot
+      app: xi-jinping-bot
   template:
     metadata:
       labels:
-        app: xi_jinping_bot 
+        app: xi-jinping-bot
     spec:
       containers:
-        - name: xi_jinping_bot
+        - name: xi-jinping-bot
           image: #{deployment.image.name}#
           ports:
             - name: http-api
