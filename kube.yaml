@@ -3,6 +3,7 @@ data:
   DISCORD_TOKEN: #{discord.token}#
 kind: ConfigMap
 metadata:
+  namespace: prod
   name: xi-jingping-bot-config
 ---
 apiVersion: apps/v1
