@@ -1,17 +1,4 @@
-FROM golang:alpine as builder
-RUN mkdir /build 
-COPY ./config.yaml /build
-COPY ./banner.txt /build
-ADD ./src /build/
-WORKDIR /build 
-RUN ls
-RUN go build -o main .
-
-FROM alpine
-RUN adduser -S -D -H -h /app appuser
-USER appuser
-COPY --from=builder /build/main /app/
-COPY --from=builder /build/config.yaml /
-COPY --from=builder /build/banner.txt /
+FROM node:16-alpine
 WORKDIR /app
-CMD ["./main"]
+COPY ./dist .
+CMD ["node", "/app/src/index.js"]

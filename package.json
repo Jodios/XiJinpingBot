@@ -1,0 +1,22 @@
+{
+  "name": "XiJinpingBot",
+  "version": "1.0.0",
+  "description": "Bot to enforce Chinese law",
+  "main": "index.js",
+  "repository": "git@github.com:Jodios/XiJingpingBot.git",
+  "author": "Joel <joelandapophis@gmail.com>",
+  "license": "GPL-3.0",
+  "scripts": {
+    "start": "node src/index.js",
+    "build": "yarn install; node build.js; mkdir ./dist/fonts 2>null; cp node_modules/figlet/fonts/'Swamp Land.flf' ./dist/fonts;"
+  },
+  "dependencies": {
+    "discord.js": "^13.5.0",
+    "dotenv": "^10.0.0",
+    "esbuild": "^0.14.10",
+    "figlet": "^1.5.2"
+  },
+  "devDependencies": {
+    "esbuild-plugin-fileloc": "^0.0.6"
+  }
+}
