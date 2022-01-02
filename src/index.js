@@ -15,7 +15,6 @@ client.on("messageCreate", (message) => {
 			return;
 		}
 	})
-
 })
 
 client.on("ready", () => {
@@ -25,6 +24,22 @@ client.on("ready", () => {
 		}
 		console.log(result)
 	})
+	setWatchingOverActivity()
+	setInterval(setWatchingOverActivity, 3600000)
 })
 
 client.login(process.env.DISCORD_TOKEN)
+
+
+const setWatchingOverActivity = () => {
+	let subjects = 0 
+	client.guilds.cache.forEach((guild) => {
+		subjects += guild.memberCount
+	})
+	client.user.setActivity({
+		type: "WATCHING",
+		name: `over ${subjects} subjects.`
+	})
+}
+
+
