@@ -3,7 +3,8 @@ require('esbuild').build({
   // outfile: "out.js",
   outdir: "dist/src",
   bundle: true,
-  minify: true,
+  preserveSymlinks: true,
+  minify: false,
   platform: "node",
 }).catch(() => process.exit(1))
 
